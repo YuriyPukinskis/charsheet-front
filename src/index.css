@@ -1,0 +1,12 @@
+@import url('./vendor/normalize.css');
+@import url('./page.css');
+@import url('./components/Header/header.css');
+@import url('./components/InfoToolTip/infoToolTip.css');
+@import url('./components/EditProfilePopup/profile.css');
+@import url('./components/Card/card.css');
+@import url('./elements.css');
+@import url('./components/Footer/footer.css');
+@import url('./components/PopupWithForm/popup.css');
+@import url('./components/CharSheetPopup/charSheetPopup.css');
+@import url('./components/Authorisation/Login/login.css');
+@import url('./components/Authorisation/Register/register.css');

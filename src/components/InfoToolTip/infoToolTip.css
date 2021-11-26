@@ -1,0 +1,56 @@
+.info-popup__caption{
+  color: black;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  width:100%;
+  max-width: 358px;
+  margin: 0 auto;
+  margin-top: 32px;
+}
+
+.info-popup__close{
+  width:100%;
+  max-width: 40.7px;
+  height: 40.7px;
+  position: absolute;
+  
+  
+  top: -41px;
+  right: -41px;
+  margin:0;
+  padding: 0;
+  background: url('../../images/CloseIcon.png') no-repeat;
+  background-size: contain;
+  border:none;
+  transition: 3s;
+  cursor: pointer;
+}
+
+.info-popup__close:hover{
+  opacity: 80%;
+}
+
+.info-popup__container{
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  position: relative;
+  margin: auto auto;
+  height:100%;
+  max-height: 330px;
+  width:auto;
+  width:100%;
+  max-width: 430px;
+  border-radius: 5%;
+}
+
+.info-popup__img{
+  width: 120px;
+  height: 120px;
+  margin: 0 calc(50% - 60px);
+  margin-top:60px;
+}

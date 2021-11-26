@@ -1,0 +1,129 @@
+.element__button{
+  background: none;
+  border: none;
+  background: url("../../images/Group.png") no-repeat;
+  background-size: contain;
+  height: 18.13px;
+  width: 100%;
+  max-width: 20.76px;
+    
+  padding:0;
+  margin:0;
+  margin-right: 18.24px;
+  transition: 3s;
+  cursor: pointer;
+}
+
+.element__button:hover{
+  opacity:60%;
+}
+
+.element__caption{
+  background-color: white;
+  color:black;
+  padding:0;
+  margin:0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.element__delete{
+  position: absolute;
+  top:23.79px;
+  right:16.28px;
+  background: none;
+  border: none;
+  background: url("../../images/Trash.png") no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  visibility: hidden;
+
+  z-index:2;
+  height: 19.3px;
+  transition: 1s;
+}
+
+.element__delete:hover{
+  opacity:60%;
+}
+
+.element__update{
+  position: absolute;
+  top:23.79px;
+  left:16.28px;
+  background: none;
+  border: none;
+  background: url("../../images/pen.png") no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  visibility: hidden;
+
+  z-index:2;
+  height: 19.3px;
+  transition: 1s;
+}
+
+.element__update:hover{
+  opacity:60%;
+}
+
+.element__img{
+  width:100%;
+  height:100%;
+  max-height:282px;
+  padding:0;
+  margin:0;
+  z-index: 1;
+  display: block;
+}
+
+.element__likeCount{
+  margin:0;
+  padding:0;
+  text-align: center;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.element__section{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-height: 40px;
+  width:100%;
+  max-width: 20px;
+  margin: auto, 0;
+  margin-right: 21px;;
+}
+
+.element__text{
+  font-family: 'Inter', ‘Arial’, sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  margin-left:21px;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.element{
+  width:100%;
+  max-width: 282px;
+  border-radius: 10px;
+  overflow: hidden;
+  height:351px; 
+  position: relative;
+  padding:0;
+  margin:0;
+}
+
+.element__button_liked{
+  background: url(https://code.s3.yandex.net/web-code/dom/heart-filled.svg) center no-repeat;
+}
