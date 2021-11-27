@@ -37,7 +37,7 @@ export default function AddCharacterPopup(props){
   }
 
   return(
-    <PopupWithForm name="character-popup" title="Новый персонаж" isOpen={props.isOpen} onClose={props.onClose} onSubmit={handleSubmit}>
+    <PopupWithForm className="character-popup" name="character-popup" title="Новый персонаж" isOpen={props.isOpen} onClose={props.onClose} onSubmit={handleSubmit}>
     <input ref={nameRef} id="image-input" className="popup__input character-popup__input_name" placeholder='Имя' name="character-name" type="text" minLength="2" maxLength="30" required />
     <span id="image-input-error" className="popup__input-error" /> 
     <input ref={urlRef} id="url-input" className="popup__input character-popup__input_image" placeholder='Ссылка на картинку' name="character-image" type="url" required />
