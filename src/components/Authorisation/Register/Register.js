@@ -5,6 +5,7 @@ class Register extends React.Component {
   constructor(props){
     super(props);
     this.state = {
+      name: '',
       email: '',
       password: ''
     }
@@ -23,8 +24,8 @@ class Register extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-      const { password, email } = this.state;
-      this.props.handleRegister(password,email);
+      const { password, email,name } = this.state;
+      this.props.handleRegister(password,email,name);
   } 
 
   render(){
@@ -34,6 +35,7 @@ class Register extends React.Component {
           Регистрация
         </p>
         <form onSubmit={this.handleSubmit} className="register__form">
+        <input className="register__input" required id="name" name="name" placeholder="Имя" type="text" value={this.state.name} onChange={this.handleChange} />
           <input className="register__input" required id="email" name="email" placeholder="Email" type="text" value={this.state.email} onChange={this.handleChange} />
           <input className="register__input" required id="password" name="password" placeholder="Пароль" type="password" value={this.state.password} onChange={this.handleChange} />
           <div className="register__button-container">

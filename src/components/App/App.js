@@ -42,8 +42,8 @@ function App() {
     .catch(err => console.log(err));
   }
 
-  function handleRegister(password,email){
-    auth.register( password, email).then((res) => {
+  function handleRegister(password,email,name){
+    auth.register( password, email, name).then((res) => {
       if(res){
           handleSetInfoToolTipImg(check)
           handleSetInfoToolTipText('Вы успешно зарегистрировались!')

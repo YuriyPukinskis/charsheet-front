@@ -19,7 +19,6 @@ export default function AddCharacterPopup(props){
 
   function handleSubmit(e) {
     e.preventDefault();
-    alert(lvlRef.current.value)
     props.onApploadCard({
       name: nameRef.current.value,
       url: urlRef.current.value,

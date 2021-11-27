@@ -1,13 +1,17 @@
 //Фронт auth
-export const BASE_URL = 'http://localhost:3005';
-export const register = ( password, email) => {
+export const BASE_URL = 'http://51.250.14.69:3005';
+export const register = ( password1, email1, name1) => {
   return fetch(`${BASE_URL}/signup`, {
     "credentials": "include",
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ password, email})
+    body: JSON.stringify({
+      name: name1,
+      email: email1,
+      password: password1
+    })
   })
   .then((response) => {
     try {
