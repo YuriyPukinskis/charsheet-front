@@ -1,5 +1,5 @@
 //Фронт auth
-export const BASE_URL = 'http://51.250.14.69:3005';
+export const BASE_URL = 'http://51.250.6.187:3005';
 export const register = ( password1, email1, name1) => {
   return fetch(`${BASE_URL}/signup`, {
     "credentials": "include",
