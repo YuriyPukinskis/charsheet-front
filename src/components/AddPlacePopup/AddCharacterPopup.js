@@ -40,12 +40,32 @@ export default function AddCharacterPopup(props){
     <PopupWithForm className="character-popup" name="character-popup" title="Новый персонаж" isOpen={props.isOpen} onClose={props.onClose} onSubmit={handleSubmit}>
     <input ref={nameRef} id="image-input" className="popup__input character-popup__input_name" placeholder='Имя' name="character-name" type="text" minLength="2" maxLength="30" required />
     <span id="image-input-error" className="popup__input-error" /> 
-    <input ref={urlRef} id="url-input" className="popup__input character-popup__input_image" placeholder='Ссылка на картинку' name="character-image" type="url" required />
-    <span id="url-input-error" className="popup__input-error" /> 
+    <input ref={urlRef} id="url-input" className="popup__input character-popup__input_image" placeholder='Ссылка на картинку' name="character-image" type="url" />
+    <span id="url-input-error" className="popup__input-error" required/> 
 
-    <input ref={raceRef} id="race-input" className="popup__input character-popup__input_race" placeholder='Раса' name="character-race" type="text" required />
+    <select ref={raceRef} name="lang" className="popup__input character-popup__input_race" required>
+      <option value="Человек">Человек</option>
+      <option value="Гном">Гном</option>
+      <option value="Дворф">Дворф</option>
+      <option value="Эльф">Эльф</option>
+      <option value="Полуэльф">Полуэльф</option>
+      <option value="Полурослик">Полурослик</option>
+      <option value="Полуорк">Полуорк</option>
+    </select>
     <span id="race-input-error" className="popup__input-error" /> 
-    <input ref={classRef} id="class-input" className="popup__input character-popup__input_class" placeholder='Класс' name="character-class" type="text" required />
+    <select ref={classRef} name="lang" className="popup__input character-popup__input_profession" required>
+      <option value="Бард">Бард</option>
+      <option value="Варвар">Варвар</option>
+      <option value="Воин">Воин</option>
+      <option value="Волшебник">Волшебник</option>
+      <option value="Друид">Друид</option>
+      <option value="Жрец">Жрец</option>
+      <option value="Монах">Монах</option>
+      <option value="Паладин">Паладин</option>
+      <option value="Разбойник">Разбойник</option>
+      <option value="Рейнджер">Рейнджер</option>
+      <option value="Чародей">Чародей</option>
+    </select>
     <span id="class-input-error" className="popup__input-error" /> 
     <input ref={lvlRef} id="lvl-input" className="popup__input character-popup__input_level" placeholder='Уровень' name="character-level" type="text" required />
     <span id="lvl-input-error" className="popup__input-error" /> 

@@ -50,11 +50,43 @@
   overflow-x:hidden;
 }
 
-.caption{
+/* .caption{
   font-family: Inter;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
   line-height: 15px;
-  color: #FFFFFF;
+  color: black;
+} */
+
+.caption{
+  margin-left:20px;
 }
+
+.captionField{
+  background-color: wheat;
+  color: black;
+}
+
+.static_characteristics{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid red;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@media screen and (max-width: 1100px) {
+  .static_characteristics{
+    flex-direction: column;
+    font-size: 13px;
+  }
+}
+
+.hp{
+  display: flex;
+  flex-direction: row;
+  border: 1px solid green;
+  align-items: center;
+}
+
