@@ -61,6 +61,12 @@
 
 .caption{
   margin-left:20px;
+  border: 1px solid red;
+  max-width: fit-content;
+}
+
+.stat{
+  margin-left: 20px;
 }
 
 .captionField{
@@ -90,3 +96,45 @@
   align-items: center;
 }
 
+.attack{
+  display: flex;
+  flex-direction: row;
+  border: 1px solid pink;
+  align-items: center;
+  width: 80%;
+}
+
+@media screen and (max-width: 800px) {
+  .attack{
+    flex-direction: column;
+    font-size: 13px;
+  }
+}
+
+.character-popup__input_attack{
+  max-width:120px;
+}
+
+.check_space{
+  display: flex;
+  flex-direction: row;
+}
+
+.damage{
+  display: flex;
+  align-items: center;
+}
+
+.save{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  padding:0;
+}
+
+.caption_explain{
+  margin: 0;
+  padding:5px 5px;
+  margin-right: 5px;
+}

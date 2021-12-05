@@ -99,6 +99,7 @@ function App() {
   const [isRegisterVisible, setIsRegisterVisible]=useState(true)
 
   function prepareCard(newCard){
+    // alert("help"+newCard.bluffLevel)
     const name=newCard.name;
     const link=newCard.url;
     const numberOfLikes=newCard.likes.length;
@@ -115,7 +116,60 @@ function App() {
     const intelligence = newCard.intelligence;
     const wisdom = newCard.wisdom;
     const charisma = newCard.charisma;
-    return {name,link,numberOfLikes,cardId,elementLikes,ownerID,likes,race,profession,level,strength,dexterity,constitution,intelligence,wisdom,charisma}
+
+    const useMagicDeviceBonusLevel = newCard.useMagicDeviceLevel;
+    const survivalBonusLevel = newCard.survivalLevel;
+    const spellcraftBonusLevel = newCard.spellcraftLevel;
+    const senseMotiveBonusLevel = newCard.senseMotiveLevel;
+    const professionBonusLevel = newCard.professionLevel;
+    const perceptionBonusLevel = newCard.perceptionLevel;
+    const knowledgeBonusLevel = newCard.knowledgeLevel;
+    const healBonusLevel = newCard.healLevel;
+    const flyBonusLevel = newCard.flyLevel;
+    const disguiseBonusLevel = newCard.disguiseLevel;
+    const diplomacyBonusLevel = newCard.diplomacyLevel;
+    const climbBonusLevel = newCard.climbLevel;
+    const appraiseBonusLevel = newCard.appraiseLevel;
+    const swimBonusLevel = newCard.swimLevel;
+    const stealthBonusLevel = newCard.stealthLevel;
+    const sleightOfHandBonusLevel = newCard.sleightOfHandLevel;
+    const rideBonusLevel = newCard.rideLevel;
+    const performBonusLevel = newCard.performLevel;
+    const linguisticsBonusLevel = newCard.linguisticsLevel;
+    const intimidateBonusLevel = newCard.intimidateLevel;
+    const handleAnimalBonusLevel = newCard.handleAnimalLevel;
+    const escapeArtistBonusLevel = newCard.escapeArtistLevel;
+    const disableDeviceBonusLevel = newCard.disableDeviceLevel;
+    const craftBonusLevel = newCard.craftLevel;
+    const bluffBonusLevel = newCard.bluffLevel;
+    const acrobaticsBonusLevel = newCard.acrobaticsLevel
+    return {name,link,numberOfLikes,cardId,elementLikes,ownerID,likes,race,profession,level,strength,dexterity,constitution,intelligence,wisdom,charisma,
+      useMagicDeviceBonusLevel,
+      survivalBonusLevel,
+      spellcraftBonusLevel,
+      senseMotiveBonusLevel,
+      professionBonusLevel,
+      perceptionBonusLevel,
+      knowledgeBonusLevel,
+      healBonusLevel,
+      flyBonusLevel,
+      disguiseBonusLevel,
+      diplomacyBonusLevel,
+      climbBonusLevel,
+      appraiseBonusLevel,
+      swimBonusLevel,
+      stealthBonusLevel,
+      sleightOfHandBonusLevel,
+      rideBonusLevel,
+      performBonusLevel,
+      linguisticsBonusLevel,
+      intimidateBonusLevel,
+      handleAnimalBonusLevel,
+      escapeArtistBonusLevel,
+      disableDeviceBonusLevel,
+      craftBonusLevel,
+      bluffBonusLevel,
+      acrobaticsBonusLevel}
   }
 
   useEffect(() => {
@@ -197,7 +251,33 @@ function App() {
   }
 
   function handleApploadCard(data) {
-    api.postCardToServer(data.name,data.url,data.race,data.profession,data.level,data.strength,data.dexterity,data.constitution,data.intelligence,data.wisdom,data.charisma)
+    api.postCardToServer(data.name,data.url,data.race,data.profession,data.level,data.strength,data.dexterity,data.constitution,data.intelligence,data.wisdom,data.charisma,
+      data.useMagicDeviceBonusLevel,
+      data.survivalBonusLevel,
+      data.spellcraftBonusLevel,
+      data.senseMotiveBonusLevel,
+      data.professionBonusLevel,
+      data.perceptionBonusLevel,
+      data.knowledgeBonusLevel,
+      data.healBonusLevel,
+      data.flyBonusLevel,
+      data.disguiseBonusLevel,
+      data.diplomacyBonusLevel,
+      data.climbBonusLevel,
+      data.appraiseBonusLevel,
+      data.swimBonusLevel,
+      data.stealthBonusLevel,
+      data.sleightOfHandBonusLevel,
+      data.rideBonusLevel,
+      data.performBonusLevel,
+      data.linguisticsBonusLevel,
+      data.intimidateBonusLevel,
+      data.handleAnimalBonusLevel,
+      data.escapeArtistBonusLevel,
+      data.disableDeviceBonusLevel,
+      data.craftBonusLevel,
+      data.bluffBonusLevel,
+      data.acrobaticsBonusLevel )
       .then((newCard)=>{
         const newCardToPage = prepareCard(newCard.data)
         setCards([newCardToPage, ...cards]); 
@@ -209,7 +289,33 @@ function App() {
   }
 
   function handleUpdateCard(data){
-    api.updateCardOnServer(data.name,data.url,data.race,data.profession,data.level,data.strength,data.dexterity,data.constitution,data.intelligence,data.wisdom,data.charisma,data.cardId)
+    api.updateCardOnServer(data.name,data.url,data.race,data.profession,data.level,data.strength,data.dexterity,data.constitution,data.intelligence,data.wisdom,data.charisma,
+      data.useMagicDeviceBonusLevel,
+      data.survivalBonusLevel,
+      data.spellcraftBonusLevel,
+      data.senseMotiveBonusLevel,
+      data.professionBonusLevel,
+      data.perceptionBonusLevel,
+      data.knowledgeBonusLevel,
+      data.healBonusLevel,
+      data.flyBonusLevel,
+      data.disguiseBonusLevel,
+      data.diplomacyBonusLevel,
+      data.climbBonusLevel,
+      data.appraiseBonusLevel,
+      data.swimBonusLevel,
+      data.stealthBonusLevel,
+      data.sleightOfHandBonusLevel,
+      data.rideBonusLevel,
+      data.performBonusLevel,
+      data.linguisticsBonusLevel,
+      data.intimidateBonusLevel,
+      data.handleAnimalBonusLevel,
+      data.escapeArtistBonusLevel,
+      data.disableDeviceBonusLevel,
+      data.craftBonusLevel,
+      data.bluffBonusLevel,
+      data.acrobaticsBonusLevel,data.cardId)
       .then((newCard) => {
         const newCardToArr=prepareCard(newCard.data)
         const newCards = cards.map((c) => c.cardId === data.cardId ? newCardToArr : c);
