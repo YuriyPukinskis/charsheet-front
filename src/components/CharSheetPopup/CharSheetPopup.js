@@ -26,6 +26,7 @@ export default function CharSheetPopup(props){
   let CMB = 0;
   let CMD = 0;
 
+  
   let acrobaticsBonus = dexBonus+props.card.acrobaticsBonusLevel;
   let bluffBonus = chaBonus+props.card.bluffBonusLevel;
   let craftBonus = intBonus+props.card.craftBonusLevel;
@@ -87,7 +88,7 @@ export default function CharSheetPopup(props){
     CMB = bab + strBonus;
     CMD = 10 + bab + strBonus + dexBonus;
   }
-
+  
   switch (props.card.profession) {
     case 'Бард':
       averageHitDie = 8;
@@ -153,6 +154,7 @@ export default function CharSheetPopup(props){
     case 'Волшебник':
       averageHitDie = 6;
       bab=Math.floor((props.card.level)/2);
+      
       fortitudeBonus = badSave;
       reflexBonus = badSave;
       willBonus = goodSave;
@@ -407,15 +409,21 @@ export default function CharSheetPopup(props){
   }
   function rollStat(statBonus){
     const roll = rollDice(20);
-    const result = roll + statBonus;
+    const result = statBonus + roll ;
     alert('Результат броска '+roll+' Значение бонуса'+statBonus+' Таким образом, итоговый результат '+result)
   }
   function rollAttack(statBonus){
-    const roll = rollDice(20);
-    let result = roll + statBonus + bab;
-    const powerMod = 1 + Math.trunc(bab/4);
-    const moddedResult = result - powerMod;
-    alert('Результат броска '+roll+' Базовый модификатор атаки ' + bab + ` ${chbox.checked?'Был применен Сокрушительный УДАР! Значение бонуса'+statBonus+'  Значение штрафа от сокрушительного УДАРА! ' +powerMod+'\n\n Таким образом, итоговый результат '+ moddedResult:' Значение бонуса '+statBonus+'\n\n Таким образом, итоговый результат '+result}`)
+    let dinamicBab = bab;
+    let resultString ='';
+    while(dinamicBab>=0){
+      const roll = rollDice(20);
+      let result = roll + parseInt(statBonus) + dinamicBab;
+      const powerMod = 1 + Math.trunc(bab/4);
+      const moddedResult = result - powerMod;
+      resultString+='Результат броска '+roll+' Базовый модификатор атаки ' + dinamicBab + ` ${chbox.checked?'Был применен Сокрушительный УДАР! Значение бонуса'+statBonus+'  Значение штрафа от сокрушительного УДАРА! ' +powerMod+'\n\n Таким образом, итоговый результат '+ moddedResult:' Значение бонуса '+statBonus+'\n\n Таким образом, итоговый результат '+result+'\n\n\n\n\n'}`;
+      dinamicBab = dinamicBab -5;
+    }
+    alert(resultString)
   }
   function rollDamage(weaponDamage, statBonus){
     const rollDamage = weaponDamage.split('d')
@@ -452,14 +460,14 @@ export default function CharSheetPopup(props){
         <img className="charSheetPopup__img" alt="Изображение" src={props.card.link} />
         <div className="captionField">
           <div className="caption"><span className='caption_explain'>Имя:</span> {props.card.name}</div>
-          <div className="caption"><span className='caption_explain'>Расса:</span> {props.card.race}</div>
+          <div className="caption"><span className='caption_explain'>Раса:</span> {props.card.race}</div>
           <div className="caption"><span className='caption_explain'>Класс:</span> {props.card.profession}</div>
           <div className="static_characteristics">
             <div className="caption"><span className='caption_explain'>Уровень:</span> {props.card.level}</div>
             <div className="hp">
               <p className = "caption caption_explain">Общее количество здоровья: </p>
               <p className="hp_total">{hp}</p>
-              <p className = "caption caption_explain">Текущее количество здоровья: </p>
+              <p className = "caption caption_explain second">Текущее количество здоровья: </p>
               <input className="hp_current" />
             </div>
             <div className="attack">

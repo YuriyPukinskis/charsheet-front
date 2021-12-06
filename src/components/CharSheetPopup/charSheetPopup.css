@@ -94,6 +94,11 @@
   flex-direction: row;
   border: 1px solid green;
   align-items: center;
+  justify-content: space-between;
+}
+
+.hp_total{
+  margin-right: 15px;
 }
 
 .attack{
