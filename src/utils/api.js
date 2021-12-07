@@ -255,8 +255,8 @@ class Api {//буква длжна быть мала
   }
   //api front
   const api = new Api({
-    // baseUrl: 'http://51.250.6.187:3005',
-    baseUrl: 'http://localhost:3005',
+    baseUrl: 'http://51.250.6.187:3005',
+    // baseUrl: 'http://localhost:3005',
     
     headers: {
       'Authorization': `Bearer ${localStorage.getItem('token')}`,
