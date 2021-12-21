@@ -61,8 +61,20 @@
 
 .caption{
   margin-left:20px;
-  border: 1px solid red;
   max-width: fit-content;
+}
+
+.caption__shield{
+  margin-top:5px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  width:70px;
+}
+
+.caption_explainShield{
+  height: fit-content;
+  margin-right:10px;
 }
 
 .stat{
@@ -72,12 +84,12 @@
 .captionField{
   background-color: wheat;
   color: black;
+  padding-bottom: 3px;
 }
 
 .static_characteristics{
   display: flex;
   flex-direction: column;
-  border: 1px solid red;
   justify-content: space-around;
   align-items: center;
 }
@@ -92,28 +104,149 @@
 .hp{
   display: flex;
   flex-direction: row;
-  border: 1px solid green;
   align-items: center;
   justify-content: space-between;
 }
 
+@media screen and (max-width: 800px) {
+  .hp{
+    flex-direction: column;
+  }
+}
+
 .hp_total{
   margin-right: 15px;
+  margin-top:0;
+  padding-top:0
 }
 
 .attack{
   display: flex;
   flex-direction: row;
-  border: 1px solid pink;
   align-items: center;
   width: 80%;
 }
 
+.title{
+  text-align: center;
+  /* font-family: 'Lobster'; */
+  /* font-family: 'Pacifico'; */
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.damage{
+  display: flex;
+  align-items: center;
+}
+
+.combatManeuver{
+  border:solid 5px hsla(0, 95%, 35%, 1);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  padding: 10px;
+}
+
+.spells{
+  margin:0 auto;
+  display: flex;
+  flex-direction: column;
+  width:100%;
+  max-width: 70%;
+  justify-content: space-between;
+}
+
+.spells_Level{
+  width: 60%;
+  display: flex;
+  margin: 10px auto;
+  justify-content: space-between;
+}
+
+.title_stat{
+  margin: 0;
+  padding: 0;
+  font-size: 35px;
+}
+
+.spells_title{
+  width: 60%;
+  text-align: start;
+  margin: 0 auto;
+}
+
+.magic{
+  border:solid 5px hsla(0, 95%, 35%, 1);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  width:50%;
+  margin: 0 auto;
+  visibility: hidden;
+}
+
+.magic_visible{
+  visibility: visible;
+}
+
+
 @media screen and (max-width: 800px) {
+
+  .magic {
+    width:95%;
+  }
+
   .attack{
     flex-direction: column;
     font-size: 13px;
   }
+
+  .spells_title{
+    width: 80%;
+  }
+
+  .spells_Level{
+    width:80%;
+  }
+
+  .attack{
+    border:solid 5px hsla(0, 95%, 35%, 1);
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    margin:20px auto;
+    padding: 7px;
+  }
+  
+  .caption_stat{
+    margin: 0 auto;
+  }
+  
+  .damage{
+    border:solid 5px hsla(0, 95%, 35%, 1);
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    padding: 5px;
+    justify-items: start;
+    margin: 0 15px;
+  }
+  .check_space{
+    margin: 5px auto;
+  }
+
+  
+
+  .character-popup__input_attack{
+    margin:5px auto;
+  }
+
+  .hp{
+    border:solid 5px hsla(0, 95%, 35%, 1);
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    padding: 10px;
+    margin-top:15px;
+  }
+
+  .stat_check{
+    margin-left: 5px;
+  }
+
 }
 
 .character-popup__input_attack{
@@ -125,9 +258,13 @@
   flex-direction: row;
 }
 
-.damage{
-  display: flex;
-  align-items: center;
+
+
+@media screen and (max-width: 800px) {
+  .damage{
+    flex-direction: column;
+    font-size: 13px;
+  }
 }
 
 .save{
@@ -142,4 +279,147 @@
   margin: 0;
   padding:5px 5px;
   margin-right: 5px;
+}
+
+.savingThrows{
+  border:solid 5px hsla(0, 95%, 35%, 1);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  padding:1em;
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
+
+.statblock{
+  border: 3px solid hsla(0, 95%, 35%, 1);
+  border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
+  max-width:fit-content;
+  margin: 10px auto;
+  transform: rotate(2deg);
+  box-shadow: 3px 15px 8px -10px rgba(0, 0, 0, 0.3);
+  transition: all 0.13s ease-in;
+}
+
+.statblock:hover {
+  transform: translateY(10px) rotate(-2deg);
+  box-shadow: 3px 15px 8px -10px rgba(0, 0, 0, 0.3);
+}
+
+.skillblock{
+  border: 3px solid hsla(0, 95%, 35%, 1);
+  max-width:fit-content;
+  margin: 20px auto;
+  border-top-left-radius: 37px 140px;
+  border-top-right-radius: 23px 130px;
+  border-bottom-left-radius: 110px 19px;
+  border-bottom-right-radius: 120px 24px;
+  transform: rotate(-2deg);
+  box-shadow: 3px 15px 8px -10px rgba(0, 0, 0, 0.3);
+  transition: all 0.13s ease-in;
+}
+
+.skillblock:hover {
+  transform: translateY(-10px) rotate(1deg);
+  box-shadow: 3px 15px 8px -10px rgba(0, 0, 0, 0.3);
+}
+
+.blockEl{
+  margin-top: 30px;;
+}
+
+.notes{
+  border:solid 5px hsla(0, 95%, 35%, 1);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  box-shadow: 3px 15px 8px -10px rgba(0, 0, 0, 0.3);
+  max-width:fit-content;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding-bottom: 10px;
+}
+
+.important_notes{
+  padding: 0 5px;
+  margin: 0 40px;
+  white-space: pre;
+}
+
+.quickNotes{
+  border:none;
+  box-shadow: 3px 15px 8px -10px rgba(0, 0, 0, 0.7);
+  margin: 0 40px;
+}
+
+.addJournal{
+  margin: 0 40px;
+}
+
+.armour{
+  width:70%;
+  margin: 20px auto;
+  border: 3px solid hsla(0, 95%, 35%, 1);
+  border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
+  padding:10px;
+}
+
+.armor_line{
+  display: flex;
+}
+
+.armor_lineTitle{
+  margin: 0;
+  padding: 0;
+}
+
+.armor_space{
+  width: 33%;
+  background-color: wheat;
+  border: none;
+}
+
+.addArmour{
+  margin:0;
+  width:100%;
+}
+
+.inventory__newItem{
+  display: flex;
+  width:70%;
+  margin: 0 auto;
+  border: 3px solid hsla(0, 95%, 35%, 1);
+  border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
+  padding:10px;
+}
+.inventory__itemName{
+  width:46%;
+}
+
+.inventory__itemQuantity{
+  width:15%;
+  background-color: wheat;
+}
+
+.inventory__itemWeight{
+  width: 15%;
+  background-color: wheat;
+}
+
+.addInventory{
+  width:20%;
+  border:none;
+  background-color:wheat;
+}
+
+.shield{
+  z-index: 2;
+  background-image: url('../../images/shield.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-size: 30px;
+  font-weight: bold;
+  color: greenyellow;
+  text-shadow: 1px 1px 2px black, 0 0 1em red;
+  padding: 5px 5px;
+  
+  margin-right: 10px;
 }

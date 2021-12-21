@@ -31,7 +31,10 @@ export default function Card(props){
       <button className={cardUpdateButtonClassName} type="button" onClick={()=>handleUpdateCard(props)} />
       <button className={cardDeleteButtonClassName} type="button" onClick={()=>handleDeleteClick(props)} />
       <div className="element__caption">
-        <h2 className="element__text">{props.card.name}</h2>
+        <div>
+          <h2 className="element__text">{props.card.name}</h2>
+          <p className="element__subtext">{props.card.game}</p>
+        </div>
         <div className="element__section">
           <button className={cardLikeButtonClassName} onClick={()=>handleLikeClick(props)} type="button" />
           <p className="element__likeCount">{props.card.numberOfLikes}</p>

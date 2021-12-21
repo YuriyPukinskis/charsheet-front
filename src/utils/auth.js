@@ -1,6 +1,6 @@
 //Фронт auth
-export const BASE_URL = 'http://51.250.6.187:3005';
-// export const BASE_URL = 'http://localhost:3005';
+export const BASE_URL = 'http://localhost:3005/api';
+// export const BASE_URL = 'http://51.250.6.187/api';
 export const register = ( password1, email1, name1) => {
   return fetch(`${BASE_URL}/signup`, {
     "credentials": "include",
@@ -29,7 +29,6 @@ export const register = ( password1, email1, name1) => {
 };
 
 export const authorize = (email, password,handleFailedLogin) => {
-    
     return fetch(`${BASE_URL}/signin`, {
       "credentials": "include",
       method: 'POST',

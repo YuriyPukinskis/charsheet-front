@@ -1,0 +1,94 @@
+.rollShower{
+  position: fixed;
+  display: flex;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  z-index: 12;
+  visibility: hidden; 
+  opacity: 0; 
+  transition: visibility 0s, opacity 0.5s linear; 
+  overflow-x: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.rollShower_visible{
+  z-index: 12;
+  visibility: visible; 
+  opacity: 1; 
+}
+
+.rollContainer{
+  margin:auto auto;
+  width:20%;
+  /* height: 20%; */
+  background-color: azure;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  padding:5px;
+  border: 3px solid hsla(0, 95%, 35%, 1);
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
+
+@media screen and (max-width: 800px) {
+  .rollContainer{
+    width: 60%;
+  }
+}
+
+.rollContent{
+  padding:0;
+  margin: 0 auto;
+  margin-top: 10px;
+  white-space: pre-wrap;
+  margin-bottom: 10px
+}
+
+.rollHeader{
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.rollTarget{
+  font-family: 'Caveat';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 4vw;
+  margin: auto auto;
+  color: azure;
+  padding:0;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.shape-outer {
+  margin-top: 10vw;
+  display: flex;
+  flex-shrink: 0;
+  height: 8vw;
+  width: 8vw;
+  margin: 0 auto;
+  /* margin: 25px; */
+  background-image: linear-gradient(to bottom right, #ff3cac, #562b7c, #2b86c5);
+}
+
+@media screen and (max-width: 800px) {
+  .rollTarget{
+    font-size: 16vw;
+    /* margin:0; */
+  }
+  .shape-outer{
+    height: 20vw;
+  width: 20vw;
+  }
+}
+
+.decagon {
+  -webkit-clip-path: polygon(50% 0%, 80% 10%, 100% 35%, 100% 65%, 80% 90%, 50% 100%, 20% 90%, 0 65%, 0 35%, 20% 10%);
+      clip-path: polygon(50% 0%, 80% 10%, 100% 35%, 100% 65%, 80% 90%, 50% 100%, 20% 90%, 0 65%, 0 35%, 20% 10%);
+}

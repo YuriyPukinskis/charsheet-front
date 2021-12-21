@@ -4,6 +4,7 @@ import React from 'react';
 export default function AddCharacterPopup(props){
   
   const nameRef = React.useRef();
+  const gameRef = React.useRef();
   const urlRef = React.useRef();
 
   const raceRef = React.useRef();
@@ -43,6 +44,8 @@ export default function AddCharacterPopup(props){
   const craftBonusRef = React.useRef();
   const bluffBonusRef = React.useRef();
   const acrobaticsBonusRef = React.useRef();
+  
+  const notesRef = React.useRef();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -85,6 +88,9 @@ export default function AddCharacterPopup(props){
       craftBonusLevel: craftBonusRef.current.value,
       bluffBonusLevel: bluffBonusRef.current.value,
       acrobaticsBonusLevel: acrobaticsBonusRef.current.value,
+      game: gameRef.current.value,
+
+      notes: notesRef.current.value,
     })
     // nameRef.current.value='';
     // urlRef.current.value=''
@@ -94,6 +100,7 @@ export default function AddCharacterPopup(props){
     <PopupWithForm className="character-popup" name="character-popup" title="Новый персонаж" isOpen={props.isOpen} onClose={props.onClose} onSubmit={handleSubmit}>
     <input ref={nameRef} id="image-input" className="popup__input character-popup__input_name" placeholder='Имя' name="character-name" type="text" minLength="2" maxLength="30" required />
     <span id="image-input-error" className="popup__input-error" /> 
+    <input ref={gameRef} id="image-input" className="popup__input character-popup__input_name" placeholder='Игра' name="character-name" type="text" />
     <input ref={urlRef} id="url-input" className="popup__input character-popup__input_image" placeholder='Ссылка на картинку' name="character-image" type="url" />
     <span id="url-input-error" className="popup__input-error" required/> 
 
@@ -137,33 +144,33 @@ export default function AddCharacterPopup(props){
     <span id="charisma-input-error" className="popup__input-error" /> 
 
 
-    <input ref={useMagicDeviceBonusRef} id="charisma-input" className="popup__input character-popup__input_attribute" placeholder='Использование магияеских предметов' name="character-attribute" type="text" />
-    <input ref={survivalBonusRef} id="charisma-input" className="popup__input character-popup__input_attribute" placeholder='Выживание' name="character-attribute" type="text" />
-    <input ref={spellcraftBonusRef} id="charisma-input" className="popup__input character-popup__input_attribute" placeholder='Колдовство' name="character-attribute" type="text" />
-    <input ref={senseMotiveBonusRef} id="charisma-input" className="popup__input character-popup__input_attribute" placeholder='Интуиция/проницательность' name="character-attribute" type="text" />
-    <input ref={professionBonusRef} id="charisma-input" className="popup__input character-popup__input_attribute" placeholder='Профессия' name="character-attribute" type="text" />
-    <input ref={perceptionBonusRef} id="charisma-input" className="popup__input character-popup__input_attribute" placeholder='Восприятие' name="character-attribute" type="text" />
-    <input ref={knowledgeBonusRef} id="charisma-input" className="popup__input character-popup__input_attribute" placeholder='Знания' name="character-attribute" type="text" />
-    <input ref={healBonusRef} id="charisma-input" className="popup__input character-popup__input_attribute" placeholder='Лечение' name="character-attribute" type="text" />
-    <input ref={flyBonusRef} id="charisma-input" className="popup__input character-popup__input_attribute" placeholder='Полет' name="character-attribute" type="text" />
-    <input ref={disguiseBonusRef} id="charisma-input" className="popup__input character-popup__input_attribute" placeholder='МАСКИРОВКА' name="character-attribute" type="text" />
-    <input ref={diplomacyBonusRef} id="charisma-input" className="popup__input character-popup__input_attribute" placeholder='Дипломатия' name="character-attribute" type="text" />
-    <input ref={climbBonusRef} id="charisma-input" className="popup__input character-popup__input_attribute" placeholder='Лазанье' name="character-attribute" type="text" />
-    <input ref={appraiseBonusRef} id="charisma-input" className="popup__input character-popup__input_attribute" placeholder='Оценка' name="character-attribute" type="text" />
-    <input ref={swimBonusRef} id="charisma-input" className="popup__input character-popup__input_attribute" placeholder='Плаванье' name="character-attribute" type="text" />
-    <input ref={stealthBonusRef} id="charisma-input" className="popup__input character-popup__input_attribute" placeholder='Скрытность' name="character-attribute" type="text" />
-    <input ref={sleightOfHandBonusRef} id="charisma-input" className="popup__input character-popup__input_attribute" placeholder='Ловкость рук' name="character-attribute" type="text" />
-    <input ref={rideBonusRef} id="charisma-input" className="popup__input character-popup__input_attribute" placeholder='Верховая езда' name="character-attribute" type="text" />
-    <input ref={performBonusRef} id="charisma-input" className="popup__input character-popup__input_attribute" placeholder='Выступление' name="character-attribute" type="text" />
-    <input ref={linguisticsBonusRef} id="charisma-input" className="popup__input character-popup__input_attribute" placeholder='Лингвистика' name="character-attribute" type="text" />
-    <input ref={intimidateBonusRef} id="charisma-input" className="popup__input character-popup__input_attribute" placeholder='Запугивание' name="character-attribute" type="text" />
-    <input ref={handleAnimalBonusRef} id="charisma-input" className="popup__input character-popup__input_attribute" placeholder='Обращение с животными' name="character-attribute" type="text" />
-    <input ref={escapeArtistBonusRef} id="charisma-input" className="popup__input character-popup__input_attribute" placeholder='Изворотливость' name="character-attribute" type="text" />
-    <input ref={disableDeviceBonusRef} id="charisma-input" className="popup__input character-popup__input_attribute" placeholder='Отключение устройств' name="character-attribute" type="text" />
-    <input ref={craftBonusRef} id="charisma-input" className="popup__input character-popup__input_attribute" placeholder='Ремесло' name="character-attribute" type="text" />
-    <input ref={bluffBonusRef} id="charisma-input" className="popup__input character-popup__input_attribute" placeholder='Блеф' name="character-attribute" type="text" />
-    <input ref={acrobaticsBonusRef} id="charisma-input" className="popup__input character-popup__input_attribute" placeholder='Акробатика' name="character-attribute" type="text" />
-
+    <input ref={useMagicDeviceBonusRef} className="popup__input character-popup__input_attribute" placeholder='Использование магияеских предметов' name="character-attribute" type="text" />
+    <input ref={survivalBonusRef} className="popup__input character-popup__input_attribute" placeholder='Выживание' name="character-attribute" type="text" />
+    <input ref={spellcraftBonusRef} className="popup__input character-popup__input_attribute" placeholder='Колдовство' name="character-attribute" type="text" />
+    <input ref={senseMotiveBonusRef} className="popup__input character-popup__input_attribute" placeholder='Интуиция/проницательность' name="character-attribute" type="text" />
+    <input ref={professionBonusRef} className="popup__input character-popup__input_attribute" placeholder='Профессия' name="character-attribute" type="text" />
+    <input ref={perceptionBonusRef} className="popup__input character-popup__input_attribute" placeholder='Восприятие' name="character-attribute" type="text" />
+    <input ref={knowledgeBonusRef} className="popup__input character-popup__input_attribute" placeholder='Знания' name="character-attribute" type="text" />
+    <input ref={healBonusRef} className="popup__input character-popup__input_attribute" placeholder='Лечение' name="character-attribute" type="text" />
+    <input ref={flyBonusRef} className="popup__input character-popup__input_attribute" placeholder='Полет' name="character-attribute" type="text" />
+    <input ref={disguiseBonusRef} className="popup__input character-popup__input_attribute" placeholder='МАСКИРОВКА' name="character-attribute" type="text" />
+    <input ref={diplomacyBonusRef} className="popup__input character-popup__input_attribute" placeholder='Дипломатия' name="character-attribute" type="text" />
+    <input ref={climbBonusRef} className="popup__input character-popup__input_attribute" placeholder='Лазанье' name="character-attribute" type="text" />
+    <input ref={appraiseBonusRef} className="popup__input character-popup__input_attribute" placeholder='Оценка' name="character-attribute" type="text" />
+    <input ref={swimBonusRef} className="popup__input character-popup__input_attribute" placeholder='Плаванье' name="character-attribute" type="text" />
+    <input ref={stealthBonusRef} className="popup__input character-popup__input_attribute" placeholder='Скрытность' name="character-attribute" type="text" />
+    <input ref={sleightOfHandBonusRef} className="popup__input character-popup__input_attribute" placeholder='Ловкость рук' name="character-attribute" type="text" />
+    <input ref={rideBonusRef} className="popup__input character-popup__input_attribute" placeholder='Верховая езда' name="character-attribute" type="text" />
+    <input ref={performBonusRef} className="popup__input character-popup__input_attribute" placeholder='Выступление' name="character-attribute" type="text" />
+    <input ref={linguisticsBonusRef} className="popup__input character-popup__input_attribute" placeholder='Лингвистика' name="character-attribute" type="text" />
+    <input ref={intimidateBonusRef} className="popup__input character-popup__input_attribute" placeholder='Запугивание' name="character-attribute" type="text" />
+    <input ref={handleAnimalBonusRef} className="popup__input character-popup__input_attribute" placeholder='Обращение с животными' name="character-attribute" type="text" />
+    <input ref={escapeArtistBonusRef} className="popup__input character-popup__input_attribute" placeholder='Изворотливость' name="character-attribute" type="text" />
+    <input ref={disableDeviceBonusRef} className="popup__input character-popup__input_attribute" placeholder='Отключение устройств' name="character-attribute" type="text" />
+    <input ref={craftBonusRef} className="popup__input character-popup__input_attribute" placeholder='Ремесло' name="character-attribute" type="text" />
+    <input ref={bluffBonusRef}  className="popup__input character-popup__input_attribute" placeholder='Блеф' name="character-attribute" type="text" />
+    <input ref={acrobaticsBonusRef} className="popup__input character-popup__input_attribute" placeholder='Акробатика' name="character-attribute" type="text" />
+    <textarea ref={notesRef} className="popup__input character-popup__input_attribute" placeholder='Заметки' name="character-attribute" type="text" />
     <button className="popup__button character-submit" type="submit" name="character-submit" >Сохранить</button>
   </PopupWithForm>    
   )

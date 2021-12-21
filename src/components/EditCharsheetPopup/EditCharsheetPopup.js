@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 
 export default function EditCharsheetPopup(props){
   const [name,setName] = useState();
+  const [game,setGame] = useState();
   const [url,setUrl] = useState();
 
   const [race,setRace] = useState();
@@ -17,11 +18,15 @@ export default function EditCharsheetPopup(props){
   const [intelligence,setIntelligence] = useState();
   const [wisdom,setWisdom] = useState();
   const [charisma,setCharisma] = useState();
-  
+  const [notes,setNotes] = useState();
+  const [weight,setWeight] = useState();
+  const [inventory,setInventory] = useState();
+
   const nameRef2 = React.useRef();
   const urlRef2 = React.useRef();
 
   const raceRef2 = React.useRef();
+  const gameRef2 = React.useRef();
   const classRef2 = React.useRef();
   const lvlRef2 = React.useRef();
 
@@ -59,10 +64,15 @@ export default function EditCharsheetPopup(props){
   const bluffBonusRef = React.useRef();
   const acrobaticsBonusRef = React.useRef();
 
+  const notesRef2 = React.useRef();
+  const weightRef = React.useRef();
+  const inventoryRef = React.useRef();
+
   function handleNameChange(e) {
-    alert(e.target.value)
     setName(e.target.value);
-    alert(name)
+  }
+  function handleGameChange(e) {
+    setGame(e.target.value);
   }
   function handleUrlChange(e) {
     setUrl(e.target.value);
@@ -72,7 +82,7 @@ export default function EditCharsheetPopup(props){
     setRace(e.target.value);
   }
   function handleProfessionChange(e) {
-    setRace(e.target.value);
+    setProfession(e.target.value);
   }
   function handleLevelChange(e) {
     setLevel(e.target.value);
@@ -96,11 +106,22 @@ export default function EditCharsheetPopup(props){
   function handleCharismaChange(e) {
     setCharisma(e.target.value);
   }
+  function handleNotesChange(e) {
+    setNotes(e.target.value);
+  }
+  function handleWeightChange(e) {
+    setWeight(e.target.value);
+  }
+  function handleInventoryChange(e) {
+    setInventory(e.target.value);
+  }
+
 
   function handleSubmit(e) {
     e.preventDefault();
     props.onUpdateCard({
       name: nameRef2.current.value,
+      game : gameRef2.current.value,
       url: urlRef2.current.value,
       race: raceRef2.current.value,
       profession: classRef2.current.value,
@@ -139,11 +160,14 @@ export default function EditCharsheetPopup(props){
       craftBonusLevel: craftBonusRef.current.value,
       bluffBonusLevel: bluffBonusRef.current.value,
       acrobaticsBonusLevel: acrobaticsBonusRef.current.value,
+      notes: notesRef2.current.value,
+      weight: weightRef.current.value
     })
   }
 
   useEffect(() => {
     setName(props.card.name)
+    setGame(props.card.game)
     setUrl(props.card.link)
 
     setRace(props.card.race)
@@ -156,12 +180,16 @@ export default function EditCharsheetPopup(props){
     setIntelligence(props.card.intelligence)
     setWisdom(props.card.wisdom)
     setCharisma(props.card.charisma)
+    setNotes(props.card.notes)
+    setWeight(props.card.weight)
+    setInventory(props.card.inventory)
   }, [props.card]); 
   
   return(
     <PopupWithForm name="place-popup" title="Обновление листа персонажа" isOpen={props.isOpen} onClose={props.onClose} onSubmit={handleSubmit}>
     <input ref={nameRef2} id="name-input" className="popup__input place-popup__input_name" placeholder='Название' value={name} name="place-name" type="text" minLength="2" maxLength="30" required onChange={handleNameChange} />
-    <span id="name-input-error" className="popup__input-error" /> 
+    <span id="name-input-error" className="popup__input-error" />
+    <input ref={gameRef2} id="name-input" className="popup__input place-popup__input_name" placeholder='Игра' value={game} name="place-name" type="text" onChange={handleGameChange} />
     <input ref={urlRef2} id="url-input" className="popup__input place-popup__input_image" placeholder='Ссылка на картинку' value={url} name="place-image" type="url" required onChange={handleUrlChange} />
     <span id="url-input-error" className="popup__input-error" /> 
 
@@ -211,7 +239,9 @@ export default function EditCharsheetPopup(props){
     <input ref={craftBonusRef} id="charisma-input" className="popup__input character-popup__input_attribute" placeholder='Ремесло' name="character-attribute" type="text" />
     <input ref={bluffBonusRef} id="charisma-input" className="popup__input character-popup__input_attribute" placeholder='Блеф' name="character-attribute" type="text" />
     <input ref={acrobaticsBonusRef} id="charisma-input" className="popup__input character-popup__input_attribute" placeholder='Акробатика' name="character-attribute" type="text" />
-
+    <textarea ref={notesRef2} className="popup__input character-popup__input_attribute" placeholder='Заметки' name="character-attribute" type="text" value={notes} onChange={handleNotesChange} />
+    <textarea ref={inventoryRef} className="popup__input character-popup__input_attribute" placeholder='Инвентарь' name="character-attribute" type="text" value={inventory} onChange={handleInventoryChange} />
+    <input ref={weightRef} id="charisma-input" className="popup__input character-popup__input_attribute" placeholder='Вес' name="character-attribute" type="text" value={weight} onChange={handleWeightChange} />
     <button className="popup__button place-submit" type="submit" name="place-submit" >Сохранить</button>
   </PopupWithForm>    
   )

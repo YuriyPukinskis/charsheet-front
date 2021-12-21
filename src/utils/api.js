@@ -56,7 +56,11 @@ class Api {//буква длжна быть мала
       disableDeviceBonus,
       craftBonus,
       bluffBonus,
-      acrobaticsBonus){
+      acrobaticsBonus,
+      currentGame,
+      note,
+      inventor){
+        alert(note)
       return fetch(`${api.options.baseUrl}/charsheets`, {
         "credentials": "include",
         method: 'POST',
@@ -98,7 +102,10 @@ class Api {//буква длжна быть мала
           disableDeviceLevel: disableDeviceBonus,
           craftLevel: craftBonus,
           bluffLevel: bluffBonus,
-          acrobaticsLevel: acrobaticsBonus
+          acrobaticsLevel: acrobaticsBonus,
+          game: currentGame,
+          notes:note,
+          inventory: inventor
         })
       })
       .then(res => {if (res.ok) {
@@ -135,7 +142,23 @@ class Api {//буква длжна быть мала
       craftBonus,
       bluffBonus,
       acrobaticsBonus,
+      currentGame,
+      note,
+      inventor,
+      weigh,
+      
+      armourName1,
+      shieldName1,
+      armourBonus1,
+      shieldBonus1,
+      armourType1,
+      shieldType1,
+      armourPenalty1,
+      shieldPenalty1,
+      armourSpellFail1,
+      shieldSpellFail1,
       sheetId){
+     
       return fetch(`${api.options.baseUrl}/charsheets/${sheetId}`, {
         "credentials": "include",
         method: 'PATCH',
@@ -177,7 +200,23 @@ class Api {//буква длжна быть мала
           disableDeviceLevel: disableDeviceBonus,
           craftLevel: craftBonus,
           bluffLevel: bluffBonus,
-          acrobaticsLevel: acrobaticsBonus
+          acrobaticsLevel: acrobaticsBonus,
+          notes: note,
+          inventory:inventor,
+          weight: weigh,
+
+          armourName:  armourName1,
+          shieldName: shieldName1,
+          armourBonus: armourBonus1,
+          shieldBonus:shieldBonus1,
+          armourType:armourType1,
+          shieldType:shieldType1,
+          armourPenalty:armourPenalty1,
+          shieldPenalty:shieldPenalty1,
+          armourSpellFail:armourSpellFail1,
+          shieldSpellFail:shieldSpellFail1,
+
+          game: currentGame
         })
       })
       .then(res => {if (res.ok) {
@@ -255,8 +294,8 @@ class Api {//буква длжна быть мала
   }
   //api front
   const api = new Api({
-    baseUrl: 'http://51.250.6.187:3005',
-    // baseUrl: 'http://localhost:3005',
+    // baseUrl: 'http://51.250.6.187/api',
+    baseUrl: 'http://localhost:3005/api',
     
     headers: {
       'Authorization': `Bearer ${localStorage.getItem('token')}`,

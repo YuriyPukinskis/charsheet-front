@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+
 @import url('./vendor/normalize.css');
 @import url('./page.css');
 @import url('./components/Header/header.css');
@@ -10,3 +14,4 @@
 @import url('./components/CharSheetPopup/charSheetPopup.css');
 @import url('./components/Authorisation/Login/login.css');
 @import url('./components/Authorisation/Register/register.css');
+@import url('./components/ShowRollResult/showRollResult.css');

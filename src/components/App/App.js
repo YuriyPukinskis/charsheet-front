@@ -10,6 +10,7 @@ import EditProfilePopup from '../EditProfilePopup/EditProfilePopup';
 import EditAvatarPopup from '../EditAvatarPopup/EditAvatarPopup';
 import EditCharsheetPopup from '../EditCharsheetPopup/EditCharsheetPopup';
 import AddCharacterPopup from '../AddPlacePopup/AddCharacterPopup';
+import ShowRollResult from '../ShowRollResult/ShowRollResult';
 import CharSheetPopup from '../CharSheetPopup/CharSheetPopup';
 import React from 'react';
 import Login from '../Authorisation/Login/Login';
@@ -86,8 +87,12 @@ function App() {
   const [isEditProfilePopupOpen,setIsEditProfilePopupOpen]=useState(false);
   const [isEditCharsheetPopupOpen,setIsEditCharsheetPopupOpen]=useState(false);
   const [isAddCharacterPopupOpen,setIsAddCharacterPopupOpen]=useState(false);
+  const [isShowRollResultOpen, setIsShowRollResultOpen]=useState(false);
   const [isBigImageOpen,setIsBigImageOpen]=useState(false);
   const [isInfoToolTipOpen, setIsInfoToolTipOpen]=useState(false);
+
+  const [rollText, setRollText]=useState('');
+  const [rollResult,setRollResult]=useState();
   
   // const [selectedCard,setSelectedCard]=useState({name: '', link: ''});;
   const [selectedCard,setSelectedCard]=useState({});
@@ -99,7 +104,7 @@ function App() {
   const [isRegisterVisible, setIsRegisterVisible]=useState(true)
 
   function prepareCard(newCard){
-    // alert("help"+newCard.bluffLevel)
+    // alert("help "+newCard.inventory)
     const name=newCard.name;
     const link=newCard.url;
     const numberOfLikes=newCard.likes.length;
@@ -142,7 +147,23 @@ function App() {
     const disableDeviceBonusLevel = newCard.disableDeviceLevel;
     const craftBonusLevel = newCard.craftLevel;
     const bluffBonusLevel = newCard.bluffLevel;
-    const acrobaticsBonusLevel = newCard.acrobaticsLevel
+    const acrobaticsBonusLevel = newCard.acrobaticsLevel;
+    const game = newCard.game;
+    const notes = newCard.notes;
+    const inventory = newCard.inventory;
+    const weight = newCard.weight;
+
+    const armourName = newCard.armourName;
+    const shieldName = newCard.shieldName;
+    const armourBonus = newCard.armourBonus;
+    const shieldBonus = newCard.shieldBonus;
+    const armourType = newCard.armourType;
+    const shieldType = newCard.shieldType;
+    const armourPenalty = newCard.armourPenalty;
+    const shieldPenalty = newCard.shieldPenalty;
+    const armourSpellFail = newCard.armourSpellFail;
+    const shieldSpellFail = newCard.shieldSpellFail;
+
     return {name,link,numberOfLikes,cardId,elementLikes,ownerID,likes,race,profession,level,strength,dexterity,constitution,intelligence,wisdom,charisma,
       useMagicDeviceBonusLevel,
       survivalBonusLevel,
@@ -169,7 +190,23 @@ function App() {
       disableDeviceBonusLevel,
       craftBonusLevel,
       bluffBonusLevel,
-      acrobaticsBonusLevel}
+      acrobaticsBonusLevel,
+      game,
+      notes,
+      inventory,
+      weight,
+      
+      armourName,
+      shieldName,
+      armourBonus,
+      shieldBonus,
+      armourType,
+      shieldType,
+      armourPenalty,
+      shieldPenalty,
+      armourSpellFail,
+      shieldSpellFail
+    }
   }
 
   useEffect(() => {
@@ -186,7 +223,9 @@ function App() {
           .then(function(res){
             const card=[]
             res.forEach(element => {
+              
               card.push(prepareCard(element))
+              // alert('did it help '+prepareCard(element).inventory)
             })
             setCards(card) 
             })
@@ -205,6 +244,9 @@ function App() {
   }
   function handleAddCharacterClick(){
     setIsAddCharacterPopupOpen(true)
+  }
+  function handleShowRollResultClick(){
+    setIsShowRollResultOpen(!isShowRollResultOpen)
   }
   function handleCardClick(){
     setIsBigImageOpen(true)
@@ -277,7 +319,11 @@ function App() {
       data.disableDeviceBonusLevel,
       data.craftBonusLevel,
       data.bluffBonusLevel,
-      data.acrobaticsBonusLevel )
+      data.acrobaticsBonusLevel,
+      data.game,
+      data.notes,
+      data.inventory
+    )
       .then((newCard)=>{
         const newCardToPage = prepareCard(newCard.data)
         setCards([newCardToPage, ...cards]); 
@@ -289,6 +335,7 @@ function App() {
   }
 
   function handleUpdateCard(data){
+    
     api.updateCardOnServer(data.name,data.url,data.race,data.profession,data.level,data.strength,data.dexterity,data.constitution,data.intelligence,data.wisdom,data.charisma,
       data.useMagicDeviceBonusLevel,
       data.survivalBonusLevel,
@@ -315,7 +362,23 @@ function App() {
       data.disableDeviceBonusLevel,
       data.craftBonusLevel,
       data.bluffBonusLevel,
-      data.acrobaticsBonusLevel,data.cardId)
+      data.acrobaticsBonusLevel,
+      data.game,
+      data.notes,
+      data.inventory,
+      data.weight,
+
+      data.armourName,
+      data.shieldName,
+      data.armourBonus,
+      data.shieldBonus,
+      data.armourType,
+      data.shieldType,
+      data.armourPenalty,
+      data.shieldPenalty,
+      data.armourSpellFail,
+      data.shieldSpellFail,
+      data.cardId)
       .then((newCard) => {
         const newCardToArr=prepareCard(newCard.data)
         const newCards = cards.map((c) => c.cardId === data.cardId ? newCardToArr : c);
@@ -403,10 +466,12 @@ function App() {
       <EditProfilePopup isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} onUpdateUser={handleUpdateUser} /> 
       <EditAvatarPopup isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} onUpdateAvatar={handleUpdateAvatar} />
       <AddCharacterPopup isOpen={isAddCharacterPopupOpen} onClose={closeAllPopups} onApploadCard={handleApploadCard}/>
+      
+      <ShowRollResult isOpen={isShowRollResultOpen} rollText={rollText} rollResult={rollResult} onClose={handleShowRollResultClick} />
 
       <EditCharsheetPopup card={selectedCard2} isOpen={isEditCharsheetPopupOpen} onClose={closeAllPopups} onUpdateCard={handleUpdateCard}  />
 
-      <CharSheetPopup card={selectedCard} isOpen={true} isBigImageOpen={isBigImageOpen} onClose={closeAllPopups}  />
+      <CharSheetPopup handleRoll={handleShowRollResultClick} setRollText={setRollText} setRollResult={setRollResult} card={selectedCard} isOpen={true} isBigImageOpen={isBigImageOpen} onClose={closeAllPopups} onUpdateCard={handleUpdateCard} />
       <InfoToolTip isOpen={true} text={infoToolTipText} img={infoToolTipImg} isInfoToolTipOpen={isInfoToolTipOpen} onClose={closeAuthPopup}  />
       </BrowserRouter>
   </div>

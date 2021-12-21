@@ -97,7 +97,7 @@
   width:100%;
   max-width: 20px;
   margin: auto, 0;
-  margin-right: 21px;;
+  margin-right: 21px;
 }
 
 .element__text{
@@ -106,11 +106,18 @@
   font-weight: 900;
   font-size: 24px;
   line-height: 29px;
+  margin-bottom: 5px;
   margin-left:21px;
 
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+
+.element__subtext{
+  margin:0;
+  padding: 0;
+  margin-left:21px;
 }
 
 .element{
@@ -119,6 +126,7 @@
   border-radius: 10px;
   overflow: hidden;
   height:351px; 
+  /* height: 400px; */
   position: relative;
   padding:0;
   margin:0;
